@@ -189,7 +189,7 @@ for jjj=1:numel(vec0)
     Inundation(:,jjj) = vec0(jjj).H;
 end
 MaxH = max(Inundation')';
-MaxH(MaxH<1e-3) = NaN;
+MaxH(MaxH<1e-3) = NaN; % Assump 1 mm water depth is No flood
 save('Results/KDET0_Run_20140811_FreeZero_OFM.mat','vec0','ofm_timestep','node0','tri0','plt0','plt0_BASE','vor0','MaxH','Qoutlet','-v7.3');
 clearvars vec0 ofm_timestep node0 tri0 plt0 plt0_BASE vor0 Inundation MaxH Qoutlet
 

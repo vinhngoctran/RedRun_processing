@@ -266,13 +266,6 @@ for l=1:size(ObsDepth_R,1)
 end
 
 
-
-% save('Results/Validation.mat','Inundation_eval','ObsDepth_R')
-
-
-
-
-
 %% Plot example
 clear all; close all; clc
 load('Results\Q_OutFall.mat','Qinoutfall','Houtfall','Q2outfall','InvertEle');

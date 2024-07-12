@@ -1,0 +1,31 @@
+function [ToTalData15m,ToTalLatLong,Allmanholesim] = readmanhole(Filename)
+
+copyfile([Filename,'/Sewer/RedRun.inout'],[Filename,'/Sewer/RedRuntext.txt']);
+Rsewer = readtable([Filename,'/Sewer/RedRuntext.txt']);
+Allmanhole = string(Rsewer.ManholeID);
+IDout = ["OO1","OO3"];
+Allmanholesim = unique(Allmanhole);
+for j=1:numel(Allmanholesim)
+    idx = find(string(Rsewer.ManholeID)==Allmanholesim{j});
+    Time = datetime(Rsewer.Year(idx),Rsewer.Month(idx),Rsewer.Day(idx),Rsewer.Hour(idx),Rsewer.Minute(idx),Rsewer.Second(idx)-1);
+    ToTalLatLong{j} = [Rsewer.X_Coordinate(idx(1)) Rsewer.Y_Coordinate(idx(1))];
+    Data = [Rsewer.Inflow(idx) Rsewer.Hydraulic_head(idx) Rsewer.Surcharge(idx)];
+    TimeData = array2timetable(Data,'RowTimes',Time);
+    ToTalData15m{j} = retime(TimeData,'regular','mean','TimeStep',minutes(15));
+    if Allmanholesim{j}==IDout{1}
+        OUTFAL{1} = 
+    elseif
+
+    end
+end
+for j=1:numel(IDout)
+    idx = find(string(Rsewer.ManholeID)==IDout{j});
+    Time = datetime(Rsewer{i,1}.Year(idx),Rsewer{i,1}.Month(idx),Rsewer{i,1}.Day(idx),Rsewer{i,1}.Hour(idx),Rsewer{i,1}.Minute(idx),Rsewer{i,1}.Second(idx)-1);
+    LatLong{i,j} = [Rsewer{i,1}.X_Coordinate(idx(1)) Rsewer{i,1}.Y_Coordinate(idx(1))];
+    Data = [Rsewer{i,1}.Inflow(idx) Rsewer{i,1}.Hydraulic_head(idx) Rsewer{i,1}.Surcharge(idx)];
+    TimeData = array2timetable(Data,'RowTimes',Time);
+    Data15m{i,j} = retime(TimeData,'regular','mean','TimeStep',minutes(15));
+    Data15m{i,j}.Data2(1) = Data15m{i,j}.Data2(2);
+end
+
+end

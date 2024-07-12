@@ -228,7 +228,7 @@ for l=1:2
 end
 [MaxH(:,1), TimeMax(:,1)] = max(Inundation,[],2);
 Inundation_W = Inundation(in,:);
-Inundation_W(Inundation_W<=0) = 0.001;
+
 DEPTH = [0 0.1 0.5 1 1.5 2 100000];
 for kk=1:size(Inundation_W,2)
     for jj = 1:numel(DEPTH)-1

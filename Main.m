@@ -294,13 +294,9 @@ plotinundation(MaxH{Event,Scen},node0,tri0)
 
 %% ====================================
 % Figure 1:
-plot_studyarea();
 plot_studyarea_3;
-plot_waterlevel();
-plot_waterlevel_2();
-plot_floodResponse();
-plot_floodResponse2();
-plot_floodResponse3();
+plot_waterlevel_3();
+plot_floodResponse4();
 plot_scenario2;
 plot_scenariofreezero;
 plot_SM1;

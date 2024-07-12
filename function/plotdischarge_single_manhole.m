@@ -7,15 +7,11 @@ IV(1:xsize) = 0;
 plot(SelectedDate(1:xsize),IV,'LineWidth',1,'Color','k');
 Houtfall1 = Q2outfall1(1:xsize,1) - Qinoutfall1(1:xsize,1);
 Houtfall2 = Q2outfall1(1:xsize,2) - Qinoutfall1(1:xsize,2);
-Houtfall1 = smoothdata(Houtfall1,'loess');
-Houtfall2 = smoothdata(Houtfall2,'loess');
 plot(SelectedDate(1:xsize),Houtfall1,'LineWidth',2.5,'Color','g','DisplayName',TT{2});
 plot(SelectedDate(1:xsize),Houtfall2,'LineWidth',1.5,'Color','r','DisplayName',TT{3});
 
 Houtfall3 = Q2outfall2(1:xsize,1) - Qinoutfall2(1:xsize,1);
 Houtfall4 = Q2outfall2(1:xsize,2) - Qinoutfall2(1:xsize,2);
-Houtfall3 = smoothdata(Houtfall3,'loess');
-Houtfall4 = smoothdata(Houtfall4,'loess');
 plot(SelectedDate(1:xsize),Houtfall3,'LineWidth',2.5,'Color','g','DisplayName',TT{5},'LineStyle','--');
 plot(SelectedDate(1:xsize),Houtfall4,'LineWidth',1.5,'Color','r','DisplayName',TT{6},'LineStyle','--');
 

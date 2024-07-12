@@ -4,11 +4,6 @@ function plothydrograph_single2(SelectedDate,Houtfall1,Houtfall2,InvertEle,i,Flo
 TT = ["HR-NA","HR-Controlled","HR-Integrated","NR-NA","NR-Controlled","NR-Integrated"];
 xsize = min([size(Houtfall1,1) size(Houtfall2,1)]);
 XXX = [1:1:xsize]*15/60;
-if i==2
-     Houtfall1(54:57,i,3) = NaN;
-     Houtfall1(:,i,3) = fillmissing(Houtfall1(:,i,3),'linear');
-end
-
 IV(1:xsize) = CrownE+InvertEle;
 % plot(XXX,IV,'LineWidth',1.5,'Color',[0.5 0.5 0.5],'LineStyle','--','DisplayName','Crown elevation')
 IVI(1:xsize) = InvertEle;

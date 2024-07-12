@@ -3,10 +3,6 @@ function plothydrograph_single(SelectedDate,Houtfall1,Houtfall2,InvertEle,i,Floo
 % close all
 TT = ["HR-NA","HR-Controlled","HR-Integrated","NR-NA","NR-Controlled","NR-Integrated"];
 xsize = min([size(Houtfall1,1) size(Houtfall2,1)]);
-if i==2
-     Houtfall1(54:57,i,3) = NaN;
-     Houtfall1(:,i,3) = fillmissing(Houtfall1(:,i,3),'linear');
-end
 plot(SelectedDate(1:xsize),Houtfall1(1:xsize,i,1),'LineWidth',2,'Color','k','DisplayName',TT{1});
 plot(SelectedDate(1:xsize),Houtfall1(1:xsize,i,2),'LineWidth',2,'Color','g','DisplayName',TT{2});
 plot(SelectedDate(1:xsize),Houtfall1(1:xsize,i,3),'LineWidth',2,'Color','r','DisplayName',TT{3});
